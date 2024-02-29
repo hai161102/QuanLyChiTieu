@@ -1,10 +1,26 @@
 package com.example.quanlychitieu.models;
 
-public class MoneyData {
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "moneydata", foreignKeys = {
+        @ForeignKey(
+                entity = DayMoney.class,
+                parentColumns = {"id"},
+                childColumns = {"dateId"}
+        )
+})
+public class MoneyData {
+    @PrimaryKey(autoGenerate = true)
     public int id;
-    protected float money;
-    protected String description;
+    @ColumnInfo(name = "money")
+    protected float money = 0f;
+    @ColumnInfo(name = "description")
+    protected String description = "";
+    @ColumnInfo(name = "dateId")
+    protected int dateId;
 
     public float getMoney() {
         return money;
@@ -20,5 +36,13 @@ public class MoneyData {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getDateId() {
+        return dateId;
+    }
+
+    public void setDateId(int dateId) {
+        this.dateId = dateId;
     }
 }
