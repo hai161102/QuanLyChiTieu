@@ -11,7 +11,7 @@ import com.example.quanlychitieu.database.dao.MoneyDataDao;
 import com.example.quanlychitieu.models.DayMoney;
 import com.example.quanlychitieu.models.MoneyData;
 
-@Database(entities = {DayMoney.class, MoneyData.class}, version = 1)
+@Database(entities = {DayMoney.class, MoneyData.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract DayMoneyDao dayMoney();
     public abstract MoneyDataDao moneyData();
