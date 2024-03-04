@@ -1,53 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:background="#1A808080"
         tools:context=".ui.activity.MainActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="12dp"
             android:gravity="center"
             android:background="@color/app_color"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
-                android:fontFamily="serif"
+                android:fontFamily="@font/font_medium"
                 android:textStyle="bold"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:gravity="center|start"
+                android:textColor="@color/textColor"
                 android:layout_marginVertical="8dp"/>
+            <ImageView
+                android:id="@+id/addBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:padding="2dp"
+                android:src="@drawable/ic_add"
+                app:tint="@color/textColor" />
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thêm Bản Ghi"
-            android:background="@drawable/bg_btn"
-            android:textColor="@color/white"
-            android:fontFamily="serif"
-            android:textStyle="bold"
-            android:paddingVertical="6dp"
-            android:paddingHorizontal="12dp"
-            android:textSize="16sp"
-            android:layout_marginTop="24dp"
-            android:id="@+id/addBtn"/>
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:layout_marginTop="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_field"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chi tiêu tháng này"
+                    android:fontFamily="@font/font_medium"
+                    android:textColor="#4CAF50"
+                    android:textSize="16sp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black"
+                    android:layout_marginVertical="4dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end|center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Số dư:"
+                        android:fontFamily="@font/font_medium"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_regular"
+                        android:text="0"
+                        android:textColor="@color/money_color"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"
+                        android:id="@+id/totalMoneyMonth"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end|center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiền thu:"
+                        android:fontFamily="@font/font_medium"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_regular"
+                        android:text="0"
+                        android:textColor="@color/money_earn_color"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"
+                        android:id="@+id/moneyEarnMonth"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end|center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiền chi:"
+                        android:fontFamily="@font/font_medium"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_regular"
+                        android:text="0"
+                        android:textColor="@color/money_payed_color"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"
+                        android:id="@+id/moneyPayMonth"/>
+                </LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_field"
+                android:padding="8dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chi tiêu hôm nay"
+                    android:fontFamily="@font/font_medium"
+                    android:textColor="#4CAF50"
+                    android:textSize="16sp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black"
+                    android:layout_marginVertical="4dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end|center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Số dư:"
+                        android:fontFamily="@font/font_medium"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_regular"
+                        android:text="0"
+                        android:textColor="@color/money_color"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"
+                        android:id="@+id/totalMoneyDay"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end|center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiền thu:"
+                        android:fontFamily="@font/font_medium"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_regular"
+                        android:text="0"
+                        android:textColor="@color/money_earn_color"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"
+                        android:id="@+id/moneyEarnDay"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end|center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiền chi:"
+                        android:fontFamily="@font/font_medium"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_regular"
+                        android:text="0"
+                        android:textColor="@color/money_payed_color"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="14sp"
+                        android:id="@+id/moneyPayDayh"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black"
+            android:layout_marginVertical="12dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Danh sách chi tiêu"
+            android:fontFamily="@font/font_medium"
+            android:textSize="18sp"
+            android:textColor="@color/app_color"
+            android:layout_marginVertical="4dp"
+            android:layout_marginHorizontal="8dp"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvNotes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
-            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            tools:listitem="@layout/item_earn_pay_day"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_empty"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh sách trống"
+                android:fontFamily="@font/font_medium"
+                android:textColor="#666666"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"/>
+        </LinearLayout>
     </LinearLayout>
 </layout>

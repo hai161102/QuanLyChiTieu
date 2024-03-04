@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#1A808080"
         android:gravity="center_horizontal">
         <LinearLayout
             android:layout_width="match_parent"
@@ -12,28 +14,54 @@
             android:gravity="center"
             android:background="@color/app_color"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_back"
+                app:tint="@color/textColor" />
             <TextView
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thêm Bản Ghi"
-                android:fontFamily="serif"
+                android:text="Thêm Chi Tiêu"
+                android:singleLine="true"
+                android:fontFamily="@font/font_medium"
                 android:textStyle="bold"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:gravity="center|start"
+                android:layout_marginHorizontal="8dp"
+                android:textColor="@color/textColor"
                 android:layout_marginVertical="8dp"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Chọn ngày"
+            android:layout_margin="8dp"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="8dp"
+            android:fontFamily="@font/font_medium"
+            android:background="@drawable/bg_btn"
+            android:textColor="@color/textColor"
+            android:id="@+id/dateTimeCurrent"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:gravity="center"
+            android:background="@drawable/bg_field"
+            android:layout_marginHorizontal="8dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Thu"
-                android:fontFamily="serif"
+                android:fontFamily="@font/font_medium"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
@@ -52,18 +80,25 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Số tiền"
+                    android:singleLine="true"
+                    android:fontFamily="@font/font_medium"
                     android:textSize="14sp"/>
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:background="@drawable/bg_input"
-                    android:padding="4dp"
+                    android:paddingVertical="4dp"
+                    android:paddingHorizontal="8dp"
                     android:textSize="14sp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
+                    android:fontFamily="@font/font_medium"
+                    android:hint="Nhập số tiền"
+                    android:singleLine="true"
                     android:id="@+id/soTienIn"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/addType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -74,53 +109,33 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Loại Thu Nhập"
-                    android:textSize="14sp"/>
-                <Spinner
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:background="@drawable/bg_input"
-                    android:padding="4dp"
-                    android:inputType="number"
-                    android:textSize="14sp"
-                    android:minHeight="28dp"
-                    android:id="@+id/typeSelectorIn"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/addType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:visibility="gone"
-                android:layout_marginTop="8dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Loại Chi Tiêu mới"
+                    android:singleLine="true"
+                    android:fontFamily="@font/font_medium"
                     android:textSize="14sp"/>
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:background="@drawable/bg_input"
-                    android:padding="4dp"
+                    android:paddingVertical="4dp"
+                    android:paddingHorizontal="8dp"
                     android:textSize="14sp"
-                    android:inputType="number"
+                    android:fontFamily="@font/font_medium"
+                    android:hint="Nhập loại thu nhập"
+                    android:singleLine="true"
                     android:id="@+id/typeInputIn"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thêm"
-                android:fontFamily="serif"
+                android:fontFamily="@font/font_medium"
                 android:background="@drawable/bg_btn"
                 android:paddingVertical="6dp"
                 android:paddingHorizontal="16dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
-                android:textColor="@color/white"
+                android:textColor="@color/textColor"
                 android:textStyle="bold"
                 android:id="@+id/addBtnIn"/>
         </LinearLayout>
@@ -129,12 +144,15 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:gravity="center"
+            android:background="@drawable/bg_field"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chi"
-                android:fontFamily="serif"
+                android:fontFamily="@font/font_medium"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
@@ -153,39 +171,23 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Số tiền"
+                    android:singleLine="true"
+                    android:fontFamily="@font/font_medium"
                     android:textSize="14sp"/>
+
                 <EditText
+                    android:id="@+id/soTienChi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:background="@drawable/bg_input"
-                    android:padding="4dp"
-                    android:textSize="14sp"
-                    android:inputType="number"
-                    android:id="@+id/soTienChi"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="8dp">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Loại chi tiêu"
-                    android:textSize="14sp"/>
-                <Spinner
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:background="@drawable/bg_input"
-                    android:padding="4dp"
-                    android:inputType="number"
-                    android:textSize="14sp"
-                    android:minHeight="28dp"
-                    android:id="@+id/typeSelectorOut"/>
+                    android:fontFamily="@font/font_medium"
+                    android:hint="Nhập số tiền"
+                    android:singleLine="true"
+                    android:inputType="numberDecimal"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:textSize="14sp" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/addTypeOut"
@@ -193,37 +195,59 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:visibility="gone"
                 android:layout_marginTop="8dp">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Loại Chi Tiêu mới"
+                    android:text="Loại Chi Tiêu"
+                    android:singleLine="true"
+                    android:fontFamily="@font/font_medium"
                     android:textSize="14sp"/>
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:background="@drawable/bg_input"
-                    android:padding="4dp"
+                    android:paddingVertical="4dp"
+                    android:paddingHorizontal="8dp"
                     android:textSize="14sp"
-                    android:inputType="number"
+                    android:fontFamily="@font/font_medium"
+                    android:singleLine="true"
+                    android:hint="Nhập loại chi tiêu"
                     android:id="@+id/typeInputOut"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thêm"
-                android:fontFamily="serif"
+                android:fontFamily="@font/font_medium"
                 android:background="@drawable/bg_btn"
                 android:paddingVertical="6dp"
                 android:paddingHorizontal="16dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
-                android:textColor="@color/white"
+                android:textColor="@color/textColor"
                 android:textStyle="bold"
                 android:id="@+id/addBtnOut"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dayInfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/font_regular"
+                android:gravity="end"
+                android:padding="8dp"
+                android:background="@drawable/bg_field"
+                android:layout_margin="8dp"
+                android:text="@string/app_name"
+                android:textSize="14sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -19,6 +19,8 @@ public class MoneyData {
     protected float money = 0f;
     @ColumnInfo(name = "description")
     protected String description = "";
+    @ColumnInfo(name = "MoneyType")
+    protected MoneyType moneyType;
     @ColumnInfo(name = "dateId")
     protected int dateId;
 
@@ -36,6 +38,14 @@ public class MoneyData {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public MoneyType getMoneyType() {
+        return moneyType;
+    }
+
+    public void setMoneyType(MoneyType moneyType) {
+        this.moneyType = moneyType;
     }
 
     public int getDateId() {
